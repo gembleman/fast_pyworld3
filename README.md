@@ -1,6 +1,9 @@
 # fast_pyworld3
 
-A high-performance Python implementation of the World3 model from "Limits to Growth: The 30-Year Update" (2004). Resolves circular dependency issues for faster simulation.
+A high-performance Python implementation of the World3 model from "Limits to Growth: The 30-Year Update" (2004). Resolves circular dependency issues for faster simulation. 
+
+Reference by [PyWorld3](https://github.com/cvanwynsberghe/pyworld3) and [PyWorld3-03](https://github.com/TimSchell98/PyWorld3-03)
+
 
 ## Installation
 
