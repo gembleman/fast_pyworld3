@@ -1,6 +1,6 @@
 [project]
 name = "fast_pyworld3"
-version = "2.0.0"
+version = "1.0.0"
 description = "A high-performance Python implementation of the World3 model from Limits to Growth (2004). 20x faster than PyWorld3-03."
 readme = "README.md"
 license = "CECILL-2.1"
