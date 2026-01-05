@@ -88,6 +88,7 @@ class World3:
 
         # Control flags
         self.verbose = config.verbose
+        self._initialized = False
 
     def init_constants(
         self,
@@ -280,10 +281,22 @@ class World3:
         self.agr.set_delay_functions(method)
         self.pol.set_delay_functions(method)
         self.res.set_delay_functions(method)
+        self._initialized = True
+
+    def _ensure_initialized(self) -> None:
+        """Initialize model with default values if not already initialized."""
+        if not self._initialized:
+            self.init_constants()
+            self.init_variables()
+            self.set_table_functions()
+            self.set_delay_functions()
 
     def run(self) -> None:
         """
         Run the World3 simulation.
+
+        If the model has not been initialized, it will be initialized with default
+        values automatically. For custom parameters, call init_constants() before run().
 
         All circular dependencies have been completely resolved through careful
         ordering of calculations. Each time step requires exactly ONE pass through
@@ -298,6 +311,9 @@ class World3:
 
         Within each sector, variables are calculated in strict dependency order.
         """
+        # Auto-initialize with defaults if not already initialized
+        self._ensure_initialized()
+
         # Initialize (k=0)
         self._init_step()
 

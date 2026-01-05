@@ -68,22 +68,28 @@ def test_world3_initialization():
     assert world3.cap.constants.ici == 2.1e11
 
 
-@pytest.mark.skip(reason="Full simulation requires complete implementation")
 def test_world3_run():
     """Test World3 simulation run"""
     config = World3Config(year_min=1900, year_max=1910, dt=1.0)
     world3 = World3(config)
 
-    world3.init_constants()
-    world3.init_variables()
-    world3.set_table_functions()
-    world3.set_delay_functions()
-
-    # This would fail without complete implementation
+    # Test auto-initialization
     world3.run()
 
     results = world3.get_results()
     assert len(results["time"]) == 11
+    assert results["pop"][0] > 0  # Initial population should be positive
+
+
+def test_world3_run_full():
+    """Test full World3 simulation from 1900-2100"""
+    world3 = World3()
+    world3.run()
+
+    results = world3.get_results()
+    assert len(results["time"]) == 401
+    # Population in 2000 (step 200) should be around 6 billion
+    assert 5e9 < results["pop"][200] < 7e9
 
 
 if __name__ == "__main__":

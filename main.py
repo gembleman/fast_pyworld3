@@ -1,6 +1,6 @@
 """Example usage of the World3 model"""
 
-from world3.core import World3, World3Config, hello_world3
+from fast_pyworld3.core import World3, World3Config, hello_world3
 
 
 def run_standard_scenario() -> None:
