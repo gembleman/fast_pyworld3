@@ -1,4 +1,8 @@
-# fast_pyworld3
+# fast_pyworld3  
+
+[![PyPI](https://img.shields.io/pypi/v/fast-pyworld3)](https://pypi.org/project/fast-pyworld3/)
+[![Python Version](https://img.shields.io/pypi/pyversions/fast-pyworld3)](https://pypi.org/project/fast-pyworld3/)
+[![License](https://img.shields.io/pypi/l/fast-pyworld3)](https://pypi.org/project/fast-pyworld3/)  
 
 A high-performance Python implementation of the World3 model from "Limits to Growth: The 30-Year Update" (2004). Resolves circular dependency issues for faster simulation. 
 
